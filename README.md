@@ -4,6 +4,11 @@
     
  There are currently 110 questions in the json file.
  
+## Important
+
+ 1. You may not be able to view the project offline because of CORS restrictions that some browsers have implemented.
+ 2. If you cannot view the project offline because of the CORS restrictions then just open the project using live-server in visual studio code.
+
 ## How it works/Notes
 
  View the JavaScript file and view the comments to see how the quiz works.
