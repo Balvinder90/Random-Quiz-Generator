@@ -1,0 +1,288 @@
+@font-face {
+  font-family: "Agency FB";
+  src: url("../font/AgencyFB-Reg.eot");
+  src: url("../font/AgencyFB-Reg.eot?#iefix") format("embedded-opentype"),
+    url("../font/AgencyFB-Reg.woff2") format("woff2"),
+    url("../font/AgencyFB-Reg.woff") format("woff"),
+    url("../font/AgencyFB-Reg.ttf") format("truetype"),
+    url("../font/AgencyFB-Reg.svg#AgencyFB-Reg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+*,
+*:before,
+*:after {
+  font-family: "Agency FB";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; // DEFAULT FONT SIZE ON BROWSER WILL BE 10PX, 1REM = 10PX, 1.6REM = 16PX, 1.8REM = 18PX ETC
+}
+
+.question-container {
+  padding: 5rem 2rem;
+}
+
+.green {
+  &-background {
+    background: linear-gradient(90deg, #56be85, #2d6944);
+
+    &:hover .green-number:before {
+      animation: pulse 0.9s infinite;
+    }
+  }
+  &-number {
+    position: relative;
+    background-color: #f1f1f1;
+    color: #439868;
+
+    &:before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 0.1rem solid #f1f1f1;
+    }
+  }
+
+  &-text {
+    color: #f1f1f1;
+  }
+
+  &-radio {
+    border: 0.1rem solid #f1f1f1;
+
+    &:hover {
+      background-color: #f1f1f1;
+    }
+  }
+
+  &-label:hover ~ .green-radio {
+    background-color: #f1f1f1;
+  }
+}
+
+.white {
+  &-background {
+    background: linear-gradient(90deg, #f1f1f1, #e0e0e0);
+
+    &:hover .white-number:before {
+      animation: pulse 0.8s infinite;
+    }
+  }
+
+  &-number {
+    position: relative;
+    background-color: #439868;
+    color: #f1f1f1;
+
+    &:before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 0.1rem solid #439868;
+    }
+  }
+
+  &-text {
+    color: #439868;
+  }
+
+  &-radio {
+    border: 0.1rem solid #439868;
+
+    &:hover {
+      background-color: #439868;
+    }
+  }
+
+  &-label:hover ~ .white-radio {
+    background-color: #439868;
+  }
+}
+
+.question {
+  max-width: 90rem;
+  margin: 0 auto;
+
+  &__number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+    font-size: 2rem;
+    height: 3.3rem;
+    width: 3.3rem;
+    border-radius: 50%;
+  }
+
+  &__description {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+
+  &__form-groups {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 2rem;
+    text-align: center;
+  }
+
+  &__form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    font-size: 2rem;
+    padding: 0 0.5rem;
+    margin-bottom: 2rem;
+    cursor: pointer;
+  }
+
+  &__radio {
+    height: 2.2rem;
+    width: 2.2rem;
+    border-radius: 50%;
+    margin: 0 auto;
+    transition: all 0.5s;
+    cursor: pointer;
+  }
+
+  &__radio-offscreen-green {
+    position: fixed;
+    top: 999rem;
+    left: 999rem;
+
+    &:checked + .green-radio {
+      background-color: #f1f1f1;
+    }
+  }
+
+  &__radio-offscreen-white {
+    position: fixed;
+    top: 999rem;
+    left: 999rem;
+
+    &:checked + .white-radio {
+      background-color: #439868;
+    }
+  }
+}
+
+.results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__btn {
+    margin-right: 3rem;
+    font-size: 2rem;
+    background-color: transparent;
+    color: #f1f1f1;
+    border: 0.1rem solid #f1f1f1;
+    height: 3.5rem;
+    width: 9rem;
+    border-radius: 1.5rem;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.6s;
+
+    &:hover {
+      background-color: #f1f1f1;
+      color: #439868;
+    }
+  }
+
+  &__score {
+    font-size: 2.5rem;
+    color: #f1f1f1;
+  }
+}
+
+.correct {
+  background-color: #92e381;
+  border: #92e381;
+}
+
+.wrong {
+  background-color: #f47b7b;
+  border: #f47b7b;
+}
+
+.chosen {
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 50%;
+  margin: auto;
+  margin-top: 1rem;
+  animation: choice 0.7s infinite;
+
+  &-green {
+    background-color: #f1f1f1;
+  }
+
+  &-white {
+    background-color: #439868;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    width: 90%;
+    height: 90%;
+  }
+  50% {
+    width: 125%;
+    height: 125%;
+  }
+  100% {
+    width: 90%;
+    height: 90%;
+  }
+}
+
+@keyframes choice {
+  0% {
+    transform: translateY(1rem);
+  }
+  50% {
+    transform: translateY(0rem);
+  }
+  100% {
+    transform: translateY(1rem);
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .question {
+    &__form-groups {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 5rem;
+    }
+  }
+
+  .results {
+    flex-direction: column;
+
+    &__btn {
+      margin-bottom: 5rem;
+      margin-right: 0;
+    }
+
+    &__score {
+      font-size: 3rem;
+      color: #f1f1f1;
+    }
+  }
+}
